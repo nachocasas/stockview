@@ -17,7 +17,7 @@ const LIMIT = 30;
 
 class List extends Component {
 
-    _prepareDataAndRenderQuote(data){
+    _prepareDataAndRenderQuote(data, loading){
         const reversedPrices = _.take(this._extractPrices(data[PERIOD]).reverse(), LIMIT);
         const symbol = data[META_DATA][META_DATA_SYMBOL];
 
@@ -39,6 +39,7 @@ class List extends Component {
     }
 
     render(){
+       
         if(!this.props.data.length > 0){
             return (<div className="emptyList">Enter a symbol</div>);
         }
@@ -68,11 +69,11 @@ class List extends Component {
 
 }
 
-function mapStateToProps({ quotes }){
+function mapStateToProps({ quotes}){
     if(!quotes.data) {
-        return { data: []};
+        return { data: [], loading: quotes.loading};
     }
-    return { data: quotes.data };
+    return { data: quotes.data, loading: quotes.loading };
 }
 
 export default connect(mapStateToProps)(List);

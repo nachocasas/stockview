@@ -28,14 +28,16 @@ class Search extends Component {
 
     render(){
         return (
-            <div className="form-group">
-                <form onSubmit={ this.onFormSubmit } className="input-group">
-                    <input className="form-control" onChange={ this.onSearchInput } value={ this.state.term } placeholder="Enter quote" />
-                    <span className="input-group-btn">
-                        <button className="btn btn-default" type="submit">Search</button>
-                    </span>
-                </form>
-                <Loading />
+            <div>
+                <div className="form-group">
+                    <form onSubmit={ this.onFormSubmit } className="input-group">
+                        <input className="form-control" onChange={ this.onSearchInput } value={ this.state.term } placeholder="Enter symbol" />
+                        <span className="input-group-btn">
+                            <button className="btn btn-success" type="submit">Search</button>
+                        </span>
+                    </form>
+                        
+                </div>
             </div>
         )
     }

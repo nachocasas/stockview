@@ -21,7 +21,7 @@ class CommonQuotes extends Component {
 
         return commonQuotes.map((item) => {
             return (
-                <span key={ item } className="badge badge-default" onClick={ () => this.onLabelClick(item)}>{ item }</span>
+                <span key={ item } className="badge badge-primary" onClick={ () => this.onLabelClick(item)}>{ item }</span>
             );
         })
         
@@ -30,18 +30,10 @@ class CommonQuotes extends Component {
     render(){
 
         return(
-            <div className='common-card card'>
-                <div className="card-header">
-                    <ul className="nav nav-tabs card-header-tabs">
-                        <li className="nav-item">
-                            <a className="nav-link active" href="#">Common Quotes</a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="card-body">
-                    <div className="quotes-list">
-                        { this.renderCommonQuotes() }
-                    </div>
+            <div className="side-box common-box">
+                <h4>Most visited</h4>
+                <div className="side-box-body">
+                    { this.renderCommonQuotes() }
                 </div>
             </div>
         )

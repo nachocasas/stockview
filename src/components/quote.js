@@ -23,34 +23,39 @@ class Quote extends Component {
         const close = this.props.close;
         const graphColor = close < open ? 'red' : 'green';
         let className = classNames({
-            symbol: true,
-            green: close < open ? false : true,
+            "close-price" : true,
+            badge: true,
+            "badge-success": close > open ? true : false,
+            "badge-primary": close == open ? true : false,
+            "badge-danger": close < open ? true : false,
           });
-
-
+         
         return(
-            <div className="quote col-md-6">
-               <span className="close-quote badge badge-default" onClick={ this.onCloseClick }>x</span>
+            <div className="quote col-md-3">
+               
                 <div className="innerQuote">
-                    <div className="row">
-                        <div className="chart col-md-12">
-                            <Sparklines height={100} width={140} data={historyClosePrices}>
-                                <SparklinesLine color={graphColor}/>
-                                <SparklinesReferenceLine type='min' />
-                                <SparklinesReferenceLine type='max' />
-                                <SparklinesSpots />
-                            </Sparklines>
-                        </div>
+                    <div className="chart">
+                        <Sparklines height={100} width={140} data={historyClosePrices}>
+                            <SparklinesLine color={graphColor}/>
+                            <SparklinesReferenceLine type='min' />
+                            <SparklinesReferenceLine type='max' />
+                            <SparklinesSpots />
+                        </Sparklines>
                     </div>
                     <div className="row">
                         <div className="col-md-6">
-                            <span className={className}>{this.props.symbol}</span>
-                            <span className="close-price">${_.ceil(this.props.close,2)}</span>
+                            <span className="symbol">{this.props.symbol}</span>
+                            <span className={className}>${_.ceil(this.props.close,2)}</span>
                         </div>
-                        <div className="col-md-6">
-                            <div>O: ${_.ceil(this.props.open,2)} </div>
-                            <div>L: ${_.ceil(this.props.low,2)} </div>
-                            <div>H: ${_.ceil(this.props.high,2)} </div>
+                        <div className="additional-data col-md-4">
+                            <span>O: ${_.ceil(this.props.open,2)} </span>
+                            <span>L: ${_.ceil(this.props.low,2)} </span>
+                            <span>H: ${_.ceil(this.props.high,2)} </span>
+                        </div>
+                        <div className="controls col-md-2">
+                            <button className="close-quote" onClick={ this.onCloseClick }>
+                                <img src='/svg/delete.svg' />
+                            </button>
                         </div>
                     </div>
                 </div>
