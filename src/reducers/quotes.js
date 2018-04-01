@@ -1,4 +1,4 @@
-import { FETCH_QUOTE, REMOVE_QUOTE } from '../actions/index';
+import { FETCH_QUOTE, UPDATE_QUOTE, REMOVE_QUOTE } from '../actions/index';
 
 export default function(state = [], action){
     switch(action.type){
@@ -16,6 +16,9 @@ export default function(state = [], action){
             break;
         case REMOVE_QUOTE:
             return removeQuote(state, action.payload)
+            break;
+        case UPDATE_QUOTE+'_FULFILLED':
+            return insertOrUpdate(state, action.payload.data)
             break;
     }
 
@@ -37,11 +40,10 @@ function removeQuote(state, symbol){
 function insertOrUpdate(state, data) {
 
     let update = false;
-
     if(!data["Meta Data"]){
         return Object.assign({}, { data : state.data  }, { loading: false });
     };
-    
+
     if(state.data.length > 0){
         for(let value of state.data) {
             const symbol = value["Meta Data"]["2. Symbol"]

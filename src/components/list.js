@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import Quote from '../components/quote';
 
-const PERIOD = "Time Series (Daily)";
+const PERIOD = "Time Series (1min)";
 const META_DATA = "Meta Data";
 const META_DATA_SYMBOL = "2. Symbol";
 
@@ -25,7 +25,7 @@ class List extends Component {
         const openPrice = _.head(reversedPrices).open;
         const lowPrice = _.head(reversedPrices).low;
         const highPrice = _.head(reversedPrices).high;
-
+        console.log("------re-rendering "+ symbol);
         return(
             <Quote 
             key={symbol} 
@@ -69,7 +69,7 @@ class List extends Component {
 
 }
 
-function mapStateToProps({ quotes}){
+function mapStateToProps({ quotes }){
     if(!quotes.data) {
         return { data: [], loading: quotes.loading};
     }

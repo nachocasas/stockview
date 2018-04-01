@@ -7,16 +7,32 @@ body {
     padding-right: 15px;
     padding-left: 15px;
 }
-
+ /*** Header ***/
 .header {
     min-height: 100px !important;
-    margin-bottom:20px;
+    margin-bottom:0px;
 }
 
 .header h1 {
-    font-size: 2.5vh;
-    margin-top:1vh;
+    font-size: 1.8rem;
     text-align: center;
+    background: rgb(78, 127, 231);
+    padding:10px 0;
+    color:#FFF;
+}
+.header h1 sub {
+    font-size: 0.4em;
+}
+@media only screen and (min-width : 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
 }
 
 .search-form input {
@@ -30,7 +46,6 @@ body {
     width: 100%;
 }
 
-
 .side-box {
     margin-bottom: 15px;
     background: #EEE;
@@ -38,9 +53,9 @@ body {
 }
 
 .side-box h4 {
-    font-size: 1.5vh;
+    font-size: 0.9rem;
     border-bottom: 1px solid #CCC;
-    line-height: 2.5vh;
+    line-height: 1.3rem;
 }
 
 .side-box .side-box-body {
@@ -51,7 +66,7 @@ body {
     margin:0;
     padding:0;
     list-style-type: none;
-    font-size: 1.5vh;
+    font-size: 0.9rem;
 }
 
 .user-panel ul li {
@@ -80,9 +95,10 @@ body {
 /**** Loading bar ****/
 
 .load-bar {
-    position: absolute;
+    position: fixed;
     top:0;
     left:0;
+    z-index: 1000;
     margin-top: 0px;
     width: 100%;
     height: 6px;
@@ -127,55 +143,60 @@ body {
 
 /**** Quote ****/
 
+
 .quote {
     margin-bottom:10px;
-    min-width: 300px !important;
-}
-
-.close-quote{
-    width: 1.9vw;
-    height: 1.9vw;
-    border: 0;
-    background: none;
-    padding:0;
-    cursor: pointer;
-    margin-top: 2.5vw;
-}
-.innerQuote {
     background: #EEE;
     border-radius: 0px;
-    margin-right:10px !important;
-    min-height: 150px;
-    margin: auto 0 auto 0;
-    padding: 15px;
 }
 
-.innerQuote span {
-    line-height: 2.4vh;
+.data-row > div {
+    padding-right: 5px;
+    padding-left: 5px;
 }
+
+.data-row:first-child {
+    padding-left: 6px;
+}
+
 
 .additional-data>span {
     display: block;
-    line-height: 21px !important;
-    font-size: 1.3vh;
+    font-size: 0.7rem;
 }
 
-.innerQuote .symbol {
-    font-weight: bold;
-    font-size: 1.6vw;
-    line-height: 1.1vw;
-    margin: 7px 0 10px 0;
+.quote .symbol {
     display: block;
-    }
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1rem;
+    
+}
 
-.innerQuote .close-price {
-    font-size: 1.9vh !important;
+.quote .close-price {
+    display: block;
+    font-size: 1rem !important;
     font-weight: bold;
     display: block;
+    margin-top:5px;
+}
+
+.chart {
+    margin-top:1%;
 }
 
 .chart svg { 
     width: 100%;
-    height: 70%;
+    height: 90%;
     background: #FFF;
 }
+
+.close-quote{
+    width: 60%;
+    height: 60%;
+    border: 0;
+    background: none;
+    padding:0;
+    cursor: pointer;
+}
+
